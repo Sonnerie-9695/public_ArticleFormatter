@@ -7,7 +7,7 @@ permissions:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu 26
 
     steps:
       - name: Checkout repo
@@ -18,8 +18,8 @@ jobs:
         with:
           python-version: "3.14"
 
-      - name: install requirements
-        run: pip install requirments.txt
+      - name: Install requirements
+        run: pip install requirements.txt
 
-      - name: run pytest
+      - name: Run pytest
         run: python3 -m pytest -v
