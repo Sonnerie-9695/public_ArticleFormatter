@@ -1,0 +1,25 @@
+name: run-pytest
+
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@7
+
+      - name: Set up python
+        uses: actions/setup-python@7
+        with:
+          python-version: "3.14"
+
+      - name: install requirements
+        run: pip install requirments.txt
+
+      - name: run pytest
+        run: python3 -m pytest -v
