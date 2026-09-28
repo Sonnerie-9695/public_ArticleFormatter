@@ -75,6 +75,12 @@ def test_save_formatted_text_no_fixture(tmp_path):
     assert target_path.exists() == True
     assert target_path.read_text(encoding="utf-8") == "\n".join(formatted_text)
 
+def test_save_formatted_text_no_fixture_ci_check_fail(tmp_path):
+    target_path = tmp_path / "sample.01.md"
+    formatted_text = ["foo","bar","hoge"]
+    save_formatted_text(target_path,formatted_text)
+    assert target_path.exists() == True
+    assert target_path.read_text(encoding="utf-8") == formatted_text
 
 # @pytest.mark.parametrize(
 #         "input,expected",[
